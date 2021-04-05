@@ -1,0 +1,64 @@
+.hero {
+
+    @include breakpoint-up(large) {
+        display: flex;
+        align-items: center;
+    }
+
+    &__image {
+        @include breakpoint-up(large) {
+            flex: 3;
+            order: 2;
+            height: 41rem;
+            background-image: url('/images/bg-intro-desktop.svg');
+            background-position: left center;
+        }
+
+        position: relative;
+        background-image: url('/images/bg-intro-mobile.svg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        min-height: 17.5rem;
+        background-position: center center;
+
+        &::before {
+            content: "";
+            position: absolute;
+            background-image: url('/images/image-mockups.png');
+            background-size: 93%;
+            background-repeat: no-repeat;
+            background-position: center bottom; //posição eixo x - eixo y
+            height: 100%;
+            width: 100%;
+            //left: 20%;
+        }
+    }
+
+    &__text {
+        text-align: center; //mobile
+
+        @include breakpoint-up(large) {
+            flex: 2;
+            order: 1;
+            text-align: left;
+        }
+
+        h1 {
+            font-weight: 300;
+            line-height: 1.15;
+            font-size: 2.375rem;
+            color: $darkBlue;
+            
+            @include breakpoint-up(large) {
+                font-size: $xlargeFont;
+            }
+        }
+
+        p {
+            @include breakpoint-up(large) {
+                margin-bottom: 2.45rem;
+            }
+        }
+    }
+
+}
